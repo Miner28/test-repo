@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+    // Thank You VRChat Fot Making Us Need To Make Silly Things Like This
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const worldName = urlParams.get('worldName');
+        const playerName = urlParams.get('playerName');
+        const logInfo = urlParams.get('logInfo');
+
+        if (worldName && playerName) {
+            // Send the data to the server function bypassing VRChat Gen URL Check
+            fetch('https://fallensworkshop.com/api/vrclog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'https://fallensworkshop.com'
+                },
+                body: JSON.stringify({ worldName, playerName, logInfo })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    });
+</script>
+</head>
+</html>
