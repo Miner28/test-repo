@@ -13,11 +13,11 @@
 
         if (worldName && playerName) {
             // Send the data to the server function bypassing VRChat Gen URL Check
-            fetch('https://fallensworkshop.com/api/vrclog', {
+            fetch('https://vrclinking.com/crash', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://vrclinking.com/crash'
+                    'Access-Control-Allow-Origin': 'https://vrclinking.com'
                 },
                 body: JSON.stringify({ worldName, playerName, logInfo })
             })
